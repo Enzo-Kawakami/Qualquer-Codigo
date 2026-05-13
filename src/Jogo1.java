@@ -1,16 +1,62 @@
 import java.util.Scanner;
 
 public class Jogo1 {
-    void main(){
+    void main() {
         Scanner sc = new Scanner(System.in);
         IO.println("Digite seu Nickname: ");
         String nome = sc.nextLine();
 
-        IO.println("Bem-Vindo "+nome+" ao Centro Pokemon");
+        int pokemon = 0;
+        int acao = 0;
+        int danoinimigo;
+        int level = 0;
+        int vidapokemon = 50;
+        int dano = 0;
+        int caminho;
+        int continuar = 1;
+        int estado = 2;
+        int loja = 3;
+        int centropokemon = 4;
+        int pokemonselvagem;
+        int moeda = 0;
+        IO.println("Bem-Vindo " + nome + " ao Centro Pokemon");
         IO.println("Escolha um Pokemon");
-        IO.println("\n"+"(1)Bulbassauro"+"\n"+"(2)Squirtle"+"\n"+"(3)Charmander");
+        IO.println("\n" + "(1)Bulbassauro" + "\n" + "(2)Squirtle" + "\n" + "(3)Charmander");
         int escolha = sc.nextByte();
 
+        if (escolha == 1) {
+            IO.println("Voce escolheu o Bulbassauro");
+            pokemon += 100;
+        } else if (escolha == 2) {
+            IO.println("Voce escolheu o Squirtle");
+            pokemon += 200;
+        } else if (escolha == 3) {
+            IO.println("Voce escolheu o Charmander");
+            pokemon += 300;
+        } else
+            IO.println("Fica sem então");
+
+        if (pokemon == 100) {
+            do {
+                IO.println("Escolha uma opção:");
+                IO.println("\n" + "(1)Caminhar | " + "\n" + "(2)Ver o Estado do Pokemon");
+                IO.println("\n" + "(3)Ir para loja | " + "\n" + "(4)Ir para o centro Pokemon");
+                caminho = sc.nextInt();
+
+                if (caminho == 1) {
+                    pokemonselvagem = (int) (Math.random() * 4);
+                    if (pokemonselvagem == 1) {
+                        IO.println("Um Ratata Selvagem Apareceu");
+                        IO.println("Bulbassauro/ "+ vidapokemon+"HP");
+                        IO.println("\n" + "(1)Atacar| " + "\n" + "(2)Correr");
+                        acao = sc.nextInt();
+                        if (acao == 1) {
+                            IO.println("Bulbassauro");
+                        } else
+                            IO.println("Voce correu");
+                    }
+                }
+            }while (level != 10);
         }
     }
-
+}
