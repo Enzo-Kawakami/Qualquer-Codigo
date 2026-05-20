@@ -6,6 +6,7 @@ public class Jogo1 {
         IO.println("Digite seu Nickname: ");
         String nome = sc.nextLine();
 
+        int vidainimigo = 0;
         int pokemon = 0;
         int acao = 0;
         int danoinimigo;
@@ -44,25 +45,31 @@ public class Jogo1 {
                 caminho = sc.nextInt();
 
                 if (caminho == 1) {
-                    IO.println("Um Ratata Selvagem Apareceu");
-                    do {
+                    pokemonselvagem = (int)(Math.random() * 4);
+
+                    if(pokemonselvagem == 1)
+                        IO.println("Um Ratata Selvagem Apareceu");
+                    vidainimigo += 30;
+                   do {
                         IO.println("Bulbassauro/ " + vidapokemon + "HP");
                         IO.println("\n" + "(1)Atacar | (2)Correr");
                         acao = sc.nextInt();
                         if (acao == 1) {
                             IO.println("Bulbassauro/ " + vidapokemon + "HP");
-                            IO.println("\n" + "(1)Chicote de Vinha | (2)Folha Narvalha");
-                            IO.println("\n" + "(3)Pó de Veneno     | (4)Investida      ");
+                            IO.println("\n"+"(1)Chicote de Vinha | (2)Folha Narvalha");
+                            IO.println("\n"+"(3)Pó de Veneno     | (4)Investida");
                             int acao2 = sc.nextInt();
-                            if (acao2 == 1) ;
-                            vidapokemon -= 50;
+
+                            if (acao2 == 1) {
+                                IO.println("Bulbassauro usou Chicote de Vinha");
+                            }
+
+
                         }
-                    } while (acao != 2);
+                    } while (acao != 2 && vidapokemon >= 0);
                     IO.println("Voce Correu");
                 }
-
-
-            } while (vidapokemon <= 0);
+            } while (true);
         }
     }
 }
