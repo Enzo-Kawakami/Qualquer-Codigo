@@ -6,13 +6,13 @@ public class Jogo1 {
         IO.println("Digite seu Nickname: ");
         String nome = sc.nextLine();
 
-        int vidainimigo = 0;
+       int sair=0;
+       int danoinimigo = 0;
+       int vidainimigo = 0;
         int pokemon = 0;
         int acao = 0;
-        int danoinimigo;
         int level = 0;
         int vidapokemon = 50;
-        int dano = 0;
         int caminho;
         int continuar = 1;
         int estado = 2;
@@ -38,6 +38,10 @@ public class Jogo1 {
             IO.println("Fica sem então");
 
         if (pokemon == 100) {
+           int ataque =10;
+           int ataque2 = 15;
+           int ataque3 = 5;
+           int ataque4 = 12;
             do {
                 IO.println("Escolha uma opção:");
                 IO.println("\n" + "(1)Caminhar | (2)Ver o Estado do Pokemon");
@@ -55,6 +59,7 @@ public class Jogo1 {
                         IO.println("\n" + "(1)Atacar | (2)Correr");
                         acao = sc.nextInt();
                         if (acao == 1) {
+                            IO.println("Ratata/ "+ vidainimigo+"HP");
                             IO.println("Bulbassauro/ " + vidapokemon + "HP");
                             IO.println("\n"+"(1)Chicote de Vinha | (2)Folha Narvalha");
                             IO.println("\n"+"(3)Pó de Veneno     | (4)Investida");
@@ -62,11 +67,62 @@ public class Jogo1 {
 
                             if (acao2 == 1) {
                                 IO.println("Bulbassauro usou Chicote de Vinha");
-                            }
+                                vidainimigo -= ataque;
+                                if (vidainimigo == 0) {
+                                    IO.println("Seu Bulbassauro subiu de nivel: ");
+                                    IO.println("Nuvel: "+level++);
+                                    ataque ++;
+                                    ataque3++;
+                                    ataque2++;
+                                    ataque4++;
+                                }else
+                                    IO.println();
 
+                            }else if (acao2 == 2){
+                                IO.println("Bulbassauro usou Folha Narvalha");
+                                vidainimigo -= ataque2;
+                                if (vidainimigo == 0){
+                                    IO.println("Seu Bulbassauro subiu de nivel: ");
+                                    IO.println("Nuvel: "+level++);
+                                    ataque ++;
+                                    ataque3++;
+                                    ataque2++;
+                                    ataque4++;
+                                }else
+                                    IO.println();
+                            }else if(acao2 == 3){
+                                IO.println("Bulbassauro usou semente Sangue-Suga");
+                                vidainimigo -= ataque3;
+                                vidapokemon += 10;
+                                if (vidainimigo == 0){
+                                    IO.println("Seu Bulbassauro subiu de nivel: ");
+                                    IO.println("Nuvel: "+level++);
+                                    ataque ++;
+                                    ataque3++;
+                                    ataque2++;
+                                    ataque4++;
+                                }else
+                                    IO.println();
 
-                        }
-                    } while (acao != 2 && vidapokemon >= 0);
+                            }else if(acao2 == 4){
+                                IO.println("Bulbassauro usou investida");
+                                vidainimigo -= ataque4;
+                                if(vidainimigo == 0){
+                                IO.println("Seu Bulbassauro subiu de nivel: ");
+                                IO.println("Nuvel: "+level++);
+                                ataque ++;
+                                ataque3++;
+                                ataque2++;
+                                ataque4++;
+                                }else
+                                    IO.println();
+
+                            }else
+                                IO.println("Voce Mandou o Bulbassauro ficar parado");
+
+                        } danoinimigo = (int)(Math.random()* 3);
+
+                    } while (acao != 2 && vidapokemon >= 0 && vidainimigo >=0);
                     IO.println("Voce Correu");
                 }
             } while (true);
