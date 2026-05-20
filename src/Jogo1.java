@@ -121,6 +121,21 @@ public class Jogo1 {
                                 IO.println("Voce Mandou o Bulbassauro ficar parado");
 
                         } danoinimigo = (int)(Math.random()* 3);
+                        if (danoinimigo == 1){
+                            IO.println("Ratata usou investida");
+                            vidapokemon -= 10;
+                        }else if (danoinimigo ==2){
+                            IO.println("Ratata usou Rugido");
+                            ataque--;
+                            ataque2--;
+                            ataque3--;
+                            ataque4--;
+                        }else if(danoinimigo == 3){
+                            IO.println("Ratata usou Arranhão");
+                            vidapokemon -= 12;
+
+                        }else
+                            IO.println("Ratata errou o ataque");
 
                     } while (acao != 2 && vidapokemon >= 0 && vidainimigo >=0);
                     IO.println("Voce Correu");
