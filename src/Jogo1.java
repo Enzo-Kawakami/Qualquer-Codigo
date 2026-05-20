@@ -21,7 +21,7 @@ public class Jogo1 {
         int moeda = 0;
         IO.println("Bem-Vindo " + nome + " ao Centro Pokemon");
         IO.println("Escolha um Pokemon");
-        IO.println("\n" + "(1)Bulbassauro" + "\n" + "(2)Squirtle" + "\n" + "(3)Charmander");
+        IO.println("\n" + "(1)Bulbassauro | (2)Squirtle | (3)Charmander");
         int escolha = sc.nextByte();
 
         if (escolha == 1) {
@@ -39,24 +39,30 @@ public class Jogo1 {
         if (pokemon == 100) {
             do {
                 IO.println("Escolha uma opção:");
-                IO.println("\n" + "(1)Caminhar | " + "\n" + "(2)Ver o Estado do Pokemon");
-                IO.println("\n" + "(3)Ir para loja | " + "\n" + "(4)Ir para o centro Pokemon");
+                IO.println("\n" + "(1)Caminhar | (2)Ver o Estado do Pokemon");
+                IO.println("\n" + "(3)Ir para loja | (4)Ir para o centro Pokemon");
                 caminho = sc.nextInt();
 
                 if (caminho == 1) {
-                    pokemonselvagem = (int) (Math.random() * 4);
-                    if (pokemonselvagem == 1) {
-                        IO.println("Um Ratata Selvagem Apareceu");
-                        IO.println("Bulbassauro/ "+ vidapokemon+"HP");
-                        IO.println("\n" + "(1)Atacar| " + "\n" + "(2)Correr");
+                    IO.println("Um Ratata Selvagem Apareceu");
+                    do {
+                        IO.println("Bulbassauro/ " + vidapokemon + "HP");
+                        IO.println("\n" + "(1)Atacar | (2)Correr");
                         acao = sc.nextInt();
                         if (acao == 1) {
-                            IO.println("Bulbassauro");
-                        } else
-                            IO.println("Voce correu");
-                    }
+                            IO.println("Bulbassauro/ " + vidapokemon + "HP");
+                            IO.println("\n" + "(1)Chicote de Vinha | (2)Folha Narvalha");
+                            IO.println("\n" + "(3)Pó de Veneno     | (4)Investida      ");
+                            int acao2 = sc.nextInt();
+                            if (acao2 == 1) ;
+                            vidapokemon -= 50;
+                        }
+                    } while (acao != 2);
+                    IO.println("Voce Correu");
                 }
-            }while (level != 10);
+
+
+            } while (vidapokemon <= 0);
         }
     }
 }
